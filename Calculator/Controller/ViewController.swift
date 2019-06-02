@@ -36,15 +36,14 @@ class ViewController: UIViewController {
         //What should happen when a non-number button is pressed
         isFinishedTypingNumber = true
         
+        //get the current display number and save to calcLogic
         calcLogic.setNumber(displayValue)
     
         if let calcMethod = sender.currentTitle {
           
-            guard let result = calcLogic.calc(symbol: calcMethod) else {
-                fatalError("The result of the calculation is nil")
+            if let result = calcLogic.calculate(symbol: calcMethod) {
+                  displayValue = result
             }
-            displayValue = result
-
         }
     }
 
